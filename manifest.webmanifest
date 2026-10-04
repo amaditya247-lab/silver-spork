@@ -1,0 +1,9 @@
+{
+  "name":"Khaaoyaar — Pet Bhar Co.",
+  "short_name":"Khaaoyaar",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#fff9f1",
+  "theme_color":"#1b0d08",
+  "description":"Small-batch snacks, sweets and desserts from Khaaoyaar."
+}

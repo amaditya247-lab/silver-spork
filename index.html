@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1b0d08">
+  <meta name="description" content="Khaaoyaar — small-batch samosas, gulab jamun and Chocolate Toffee Truffle Cake. Real ingredients, fresh batches and direct WhatsApp ordering.">
+  <meta name="robots" content="index,follow">
+  <title>Khaaoyaar — Pet Bhar Co.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+    :root{
+      --ink:#21130d;--ink2:#5f4c40;--brown:#24120c;--brown2:#351a10;--cream:#fff9f1;
+      --paper:#f4e6d1;--paper2:#f8efe3;--gold:#f4b63f;--gold2:#ffd66c;--orange:#e88a31;
+      --green:#1e9650;--line:#e7cfb2;--white:#fff;--shadow:0 18px 48px rgba(55,27,14,.12);
+      --radius:24px;--safe:env(safe-area-inset-top,0px)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+    body.menu-open{overflow:hidden}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}.serif{font-family:Georgia,"Times New Roman",serif}
+    :focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+
+    .header{position:fixed;z-index:50;left:0;right:0;top:0;padding:calc(13px + var(--safe)) 0 30px;color:#fff;background:linear-gradient(180deg,rgba(18,8,5,.94),rgba(18,8,5,.68),transparent);transition:.2s}
+    .header.scrolled{background:rgba(24,11,7,.92);padding-bottom:13px;backdrop-filter:blur(12px);box-shadow:0 8px 25px rgba(0,0,0,.16)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:11px}.brand-mark{width:43px;height:43px;border:1.5px solid var(--gold);border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.06);font-weight:900;color:var(--gold2);font-size:21px}
+    .brand-name{font-family:Georgia,"Times New Roman",serif;font-size:29px;font-weight:800;line-height:.9}.brand-name small{display:block;font-family:Inter,sans-serif;font-size:10px;font-weight:800;color:#efd8bd;letter-spacing:.15em;margin-top:7px;text-transform:uppercase}
+    .hamb{border:1px solid rgba(255,255,255,.3);background:rgba(30,16,11,.66);color:#fff;width:50px;height:50px;border-radius:15px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;backdrop-filter:blur(8px)}.hamb span{width:23px;height:2px;background:#fff;display:block;border-radius:9px}
+
+    .drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:60;opacity:0;pointer-events:none;transition:.25s}.drawer{position:fixed;z-index:61;top:0;right:0;height:100dvh;width:min(390px,88vw);background:#20100b;color:#fff;transform:translateX(105%);transition:.3s ease;padding:calc(26px + var(--safe)) 26px 26px;box-shadow:-22px 0 55px rgba(0,0,0,.32);display:flex;flex-direction:column}.menu-open .drawer{transform:none}.menu-open .drawer-backdrop{opacity:1;pointer-events:auto}.drawer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.close{border:0;background:rgba(255,255,255,.08);color:#fff;width:42px;height:42px;border-radius:50%;font-size:24px;cursor:pointer}.drawer nav{display:grid;gap:8px}.drawer nav a{padding:14px 15px;border-radius:14px;font-weight:760}.drawer nav a:hover{background:rgba(255,255,255,.08)}.drawer .wa{background:#198c4b;margin-top:8px}.drawer-note{margin-top:auto;color:#d8c7ba;font-size:13px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+
+    .hero{min-height:730px;position:relative;color:#fff;background:#160a06;overflow:hidden}.slides{position:absolute;inset:0}.slide{position:absolute;inset:0;opacity:0;transform:scale(1.015);transition:opacity .8s ease,transform 5s ease;background-size:cover;background-position:center}.slide.active{opacity:1;transform:scale(1.055)}.slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,7,4,.95) 0%,rgba(16,7,4,.74) 38%,rgba(16,7,4,.18) 72%,rgba(16,7,4,.3) 100%),linear-gradient(0deg,rgba(16,7,4,.58),transparent 56%)}
+    .hero-content{position:relative;z-index:3;padding-top:170px;padding-bottom:82px;max-width:660px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:#ffd47e;font-weight:850}.hero h1{font-size:clamp(46px,6.4vw,82px);line-height:.96;margin:16px 0 20px;font-family:Georgia,"Times New Roman",serif}.hero p{font-size:18px;max-width:575px;color:#f8eee7;margin:0 0 24px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:999px;font-weight:850;border:1px solid transparent;transition:.18s}.btn:hover{transform:translateY(-1px)}.btn-primary{background:linear-gradient(135deg,#ffd96d,#efaa2c);color:#21140d}.btn-wa{background:#1e984f;color:#fff;border-color:#43bd71}.btn-ghost{background:#fff;color:#2c1b13;border-color:#d7b48c}
+    .hero-badge{margin-top:24px;display:inline-flex;gap:10px;align-items:flex-start;max-width:520px;padding:12px 15px;border-radius:16px;background:rgba(255,248,237,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(9px);font-size:13px;color:#f8e7d8}.hero-badge b{color:#fff}.hero-product{display:inline-flex;margin-bottom:10px;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(30,16,11,.38);font-size:12px;font-weight:800;color:#fff0d7}
+    .dots{position:absolute;z-index:4;bottom:31px;left:50%;transform:translateX(-50%);display:flex;gap:9px}.dot{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,.48);cursor:pointer;padding:0}.dot.active{background:var(--gold);transform:scale(1.25)}
+
+    .section{padding:78px 0}.section-kicker{text-align:center;text-transform:uppercase;letter-spacing:.18em;font-weight:850;font-size:12px;color:#b86e26}.section h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,4vw,52px);line-height:1.05;text-align:center;margin:8px 0 12px}.section-lead{text-align:center;color:#756257;max-width:760px;margin:0 auto 36px}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.food-card{background:#fff;border:1px solid #efddc8;border-radius:22px;overflow:hidden;box-shadow:0 12px 34px rgba(70,41,23,.08);display:flex;flex-direction:column}.food-img{height:245px;overflow:hidden;background:#2b160e}.food-img img{width:100%;height:100%;object-fit:cover;transition:.4s}.food-card:hover img{transform:scale(1.03)}.food-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}.food-body h3{font-family:Georgia,"Times New Roman",serif;font-size:27px;margin:0}.food-body p{margin:0;color:#6d5b51}.price{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:10px}.price strong{font-size:17px}.pill{display:inline-flex;font-size:12px;padding:6px 10px;border-radius:999px;background:#fff0d7;color:#7e4515;font-weight:850}.price-note{font-size:12px;color:#887468}.small-claim{margin-top:3px;color:#6d4b12;background:#fff5cf;border:1px solid #efdca0;padding:9px 11px;border-radius:12px;font-size:12px;font-weight:750}.combo{margin:19px auto 0;width:max-content;max-width:100%;padding:9px 14px;background:#fff0d7;border:1px solid #ecd2ad;border-radius:999px;font-size:13px;font-weight:800;color:#744316;text-align:center}
+
+    .offer{background:#24120c;color:#fff}.offer h2,.offer .section-lead{color:#fff}.offer .section-lead{opacity:.72}.offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.offer-card{padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.04)}.offer-icon{font-size:29px}.offer-card h3{margin:12px 0 7px;font-size:18px}.offer-card p{margin:0;color:#d9c9bd;font-size:14px}
+
+    .ingredients{background:#f3e4cf}.ing-tabs{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 auto 28px}.tab{border:1px solid #d7b998;background:#fffaf3;color:#57351f;padding:11px 16px;border-radius:999px;font-weight:850;cursor:pointer}.tab.active,.tab[aria-selected="true"]{background:#2d180f;color:#fff;border-color:#2d180f}.ing-panel{display:none}.ing-panel.active{display:grid;grid-template-columns:1.04fr .96fr;gap:26px;align-items:stretch}.ing-media{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:400px}.ing-media.one{grid-template-columns:1fr}.ing-media img{width:100%;height:100%;min-height:190px;object-fit:cover;border-radius:19px;box-shadow:var(--shadow);background:#fff}.ing-copy{background:#fffaf3;border:1px solid #e4c9a9;border-radius:24px;padding:28px;box-shadow:0 14px 38px rgba(80,44,22,.08)}.ing-copy h3{font-family:Georgia,"Times New Roman",serif;font-size:34px;margin:0 0 8px}.ing-copy>p{color:#715e52;margin-top:0}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{background:#f6e4cc;border:1px solid #e5c6a0;padding:7px 10px;border-radius:999px;font-weight:760;font-size:13px}.brand-list{margin-top:18px;padding-top:17px;border-top:1px dashed #d6baa0}.brand-list b{display:block;margin-bottom:8px}.brand-list span{font-size:13px;color:#6b594e}.claim{margin-top:17px;padding:13px 14px;border-radius:14px;background:#fff2c9;color:#654510;font-weight:800;font-size:13px}.claim small{display:block;font-weight:520;margin-top:3px;color:#7f6840}.disclaimer{font-size:12px;color:#725f53;margin:20px auto 0;max-width:920px;text-align:center}
+
+    .gallery-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-auto-rows:245px;gap:12px}.gallery-grid figure{margin:0;position:relative;overflow:hidden;border-radius:20px;background:#2d160f}.gallery-grid figure:first-child{grid-row:span 2}.gallery-grid img{width:100%;height:100%;object-fit:cover;transition:.4s}.gallery-grid figure:hover img{transform:scale(1.03)}.gallery-grid figcaption{position:absolute;left:13px;right:13px;bottom:12px;background:rgba(22,12,8,.72);color:#fff;padding:10px 12px;border-radius:12px;backdrop-filter:blur(7px);font-weight:760;font-size:13px}
+
+    .order{background:linear-gradient(135deg,#32180e,#4a2818);color:#fff}.order-box{display:grid;grid-template-columns:1.35fr .65fr;gap:25px;align-items:center}.order h2{text-align:left;color:#fff;margin-top:0}.order p{color:#eadcd3;max-width:650px}.order .btn-wa{font-size:17px;padding:16px 22px}.order-side{padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.05)}.order-side strong{display:block;font-size:18px;margin-bottom:6px}.order-side span{font-size:13px;color:#dfcfc4}.allergen{margin-top:16px;font-size:12px;color:#d9c9bd}
+    .footer{background:#160a06;color:#d9c9bd;padding:30px 0}.footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:center}.footer b{color:#fff}.footer small{font-size:12px}.floating-wa{position:fixed;z-index:45;right:18px;bottom:18px;background:#1f9c52;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 32px rgba(20,94,51,.35);font-size:24px;border:2px solid rgba(255,255,255,.8)}
+
+    @media(max-width:900px){.hero{min-height:700px}.hero-content{padding-top:150px}.menu-grid{grid-template-columns:1fr}.food-card{display:grid;grid-template-columns:42% 58%}.food-img{height:100%;min-height:260px}.offer-grid{grid-template-columns:1fr 1fr}.ing-panel.active{grid-template-columns:1fr}.ing-media{min-height:330px}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:230px}.gallery-grid figure:first-child{grid-column:span 2;grid-row:span 1}.order-box{grid-template-columns:1fr}}
+    @media(max-width:620px){.wrap{width:min(100% - 24px,1180px)}.header{padding-top:calc(10px + var(--safe))}.header.scrolled{padding-bottom:10px}.brand-name{font-size:23px}.brand-mark{width:40px;height:40px}.hamb{width:46px;height:46px}.hero{min-height:720px}.slide{background-position:center 30%}.slide:after{background:linear-gradient(0deg,rgba(17,8,5,.94) 0%,rgba(17,8,5,.62) 60%,rgba(17,8,5,.22))}.hero-content{padding-top:235px;padding-bottom:76px}.hero h1{font-size:47px}.hero p{font-size:16px}.actions .btn{width:100%}.hero-badge{font-size:12px}.section{padding:62px 0}.food-card{display:block}.food-img{height:225px;min-height:0}.offer-grid{grid-template-columns:1fr}.ing-tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}.tab{white-space:nowrap}.ing-media{grid-template-columns:1fr;min-height:0}.ing-media img{height:240px}.ing-copy{padding:22px}.gallery-grid{grid-template-columns:1fr;grid-auto-rows:240px}.gallery-grid figure:first-child{grid-column:auto}.footer-inner{display:block;text-align:center}.footer small{display:block;margin-top:8px}.floating-wa{width:54px;height:54px;right:14px;bottom:14px}.drawer{width:min(360px,92vw)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide,.food-img img,.gallery-grid img,.btn{transition:none!important}.slide.active{transform:none}}
+  </style>
+</head>
+<body>
+<header class="header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="#home" aria-label="Khaaoyaar home"><div class="brand-mark">K</div><div class="brand-name">Khaaoyaar<small>Pet Bhar Co.</small></div></a>
+    <button class="hamb" id="openMenu" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="backdrop" aria-hidden="true"></div>
+<aside class="drawer" aria-hidden="true" id="drawer" aria-label="Site menu">
+  <div class="drawer-top"><div class="brand-name">Khaaoyaar<small>Pet Bhar Co.</small></div><button class="close" id="closeMenu" aria-label="Close menu">×</button></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Our Menu</a>
+    <a href="#offer">What We Offer</a>
+    <a href="#ingredients">Ingredients & Raw Materials</a>
+    <a href="#gallery">Gallery</a>
+    <a class="wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/message/UCH22PEAKQZQC1">Order on WhatsApp</a>
+  </nav>
+  <div class="drawer-note">We serve what we eat — small batches, real ingredients and transparent cooking.</div>
+</aside>
+
+<main>
+<section class="hero" id="home" aria-label="Khaaoyaar welcome">
+  <div class="slides" aria-hidden="true">
+    <div class="slide active" data-name="Chocolate Toffee Truffle Cake" style="background-image:url('assets/cake-hero.webp')"></div>
+    <div class="slide" data-name="Fresh Samosa" style="background-image:url('assets/samosa.webp')"></div>
+    <div class="slide" data-name="Gulab Jamun" style="background-image:url('assets/gulab-jamun.webp')"></div>
+  </div>
+  <div class="wrap hero-content">
+    <div class="eyebrow">Homemade • Quality ingredients • Small batches</div>
+    <div class="hero-product" id="heroProduct">Chocolate Toffee Truffle Cake</div>
+    <h1>Freshly Made.<br><span style="color:#ffc857">Honestly Prepared.</span></h1>
+    <p>Khaaoyaar serves focused, small-batch food made with the same care and ingredients we choose for our own table.</p>
+    <div class="actions"><a class="btn btn-primary" href="#menu">View Menu →</a><a class="btn btn-wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/message/UCH22PEAKQZQC1">WhatsApp Order</a></div>
+    <div class="hero-badge">🌿 <span><b>Ingredient transparency:</b> every current menu item has its own ingredient and raw-material section below.</span></div>
+  </div>
+  <div class="dots" role="group" aria-label="Hero images"><button class="dot active" aria-label="Show cake" aria-pressed="true"></button><button class="dot" aria-label="Show samosa" aria-pressed="false"></button><button class="dot" aria-label="Show gulab jamun" aria-pressed="false"></button></div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="section-kicker">Our Menu</div><h2>What we sell right now</h2><p class="section-lead">A focused menu while Khaaoyaar grows — fewer items, made fresh and made properly.</p>
+    <div class="menu-grid">
+      <article class="food-card"><div class="food-img"><img src="assets/samosa.webp" alt="Fresh Khaaoyaar samosas" width="1080" height="1440" loading="lazy"></div><div class="food-body"><div><span class="pill">Weekend favourite</span><h3>Samosa</h3></div><p>Crisp shell with a flavour-packed potato filling, peanuts and aromatic spices.</p><div class="price"><strong>₹16 each • 2 for ₹30</strong><span class="price-note">Fresh batch</span></div></div></article>
+      <article class="food-card"><div class="food-img"><img src="assets/gulab-jamun.webp" alt="Khaaoyaar gulab jamun" width="1152" height="1536" loading="lazy"></div><div class="food-body"><div><span class="pill">Crowd favourite</span><h3>Gulab Jamun</h3></div><p>Soft, rich gulab jamuns made from a dairy base and soaked in fragrant syrup.</p><div class="price"><strong>₹25 each • 2 for ₹45</strong><span class="price-note">Fresh batch</span></div></div></article>
+      <article class="food-card"><div class="food-img"><img src="assets/cake-hero.webp" alt="Khaaoyaar Chocolate Toffee Truffle Cake" width="1149" height="1369" loading="lazy"></div><div class="food-body"><div><span class="pill">Made to order</span><h3>Chocolate Toffee Truffle Cake</h3></div><p>Moist chocolate sponge layered with rich truffle, toffee notes and glossy ganache.</p><div class="small-claim">No extra table sugar added separately*</div><div class="price"><strong>½ kg • on order</strong><span class="price-note">Ask current price</span></div></div></article>
+    </div>
+    <div class="combo">Combo: 2 Samosas + 1 Gulab Jamun — ₹50</div>
+  </div>
+</section>
+
+<section class="section offer" id="offer"><div class="wrap"><div class="section-kicker">What We Offer</div><h2>Simple food, done with care</h2><p class="section-lead">From weekend snacks to small celebration orders, we keep things fresh and small-batch.</p><div class="offer-grid">
+  <div class="offer-card"><div class="offer-icon">🥟</div><h3>Fresh Snacks</h3><p>Samosas and rotating savoury items prepared in controlled batches.</p></div>
+  <div class="offer-card"><div class="offer-icon">🍯</div><h3>Traditional Sweets</h3><p>Fresh gulab jamun, with more sweets added only after testing.</p></div>
+  <div class="offer-card"><div class="offer-icon">🎂</div><h3>Cakes & Desserts</h3><p>Chocolate Toffee Truffle Cake and selected made-to-order desserts.</p></div>
+  <div class="offer-card"><div class="offer-icon">🛍️</div><h3>Small Batch Orders</h3><p>Home orders, weekend specials and small gatherings by advance order.</p></div>
+</div></div></section>
+
+<section class="section ingredients" id="ingredients">
+  <div class="wrap"><div class="section-kicker">Ingredients & Raw Materials</div><h2>See what goes into your food</h2><p class="section-lead">Choose any current item to see the ingredients behind it. Brand packaging is shown only to identify products actually used — there are no paid promotions here.</p>
+  <div class="ing-tabs" role="tablist" aria-label="Ingredient sections">
+    <button class="tab active" id="tab-samosa" role="tab" aria-selected="true" aria-controls="panel-samosa" data-tab="samosa">Samosa</button>
+    <button class="tab" id="tab-gulab" role="tab" aria-selected="false" aria-controls="panel-gulab" data-tab="gulab">Gulab Jamun</button>
+    <button class="tab" id="tab-cake" role="tab" aria-selected="false" aria-controls="panel-cake" data-tab="cake">Chocolate Truffle Cake</button>
+  </div>
+
+  <div class="ing-panel active" id="panel-samosa" role="tabpanel" aria-labelledby="tab-samosa"><div class="ing-media"><img src="assets/samosa-spices.webp" alt="Spices used for Khaaoyaar samosa" width="1400" height="1050" loading="lazy"><img src="assets/oil-duo.webp" alt="Cooking oils used in Khaaoyaar kitchen" width="1400" height="1050" loading="lazy"></div><div class="ing-copy"><h3>Samosa</h3><p>Our current samosa is built around a simple potato-peanut filling and a spiced dough.</p><div class="chips"><span class="chip">Maida</span><span class="chip">Potato</span><span class="chip">Peanuts</span><span class="chip">Ajwain</span><span class="chip">Mangrella / Kalonji</span><span class="chip">Jeera powder</span><span class="chip">Pepper powder</span><span class="chip">Kashmiri chilli</span><span class="chip">Dhaniya patta</span><span class="chip">Chaat masala</span><span class="chip">Salt</span><span class="chip">Cooking oil</span></div><div class="brand-list"><b>Raw-material transparency</b><span>We show the ingredient packs we actually use whenever a useful photo is available. Packaging can change as stock is replenished.</span></div></div></div>
+
+  <div class="ing-panel" id="panel-gulab" role="tabpanel" aria-labelledby="tab-gulab" hidden><div class="ing-media one"><img src="assets/gulab-ingredients.webp" alt="Khoya and paneer used for Khaaoyaar gulab jamun" width="1400" height="1050" loading="lazy"></div><div class="ing-copy"><h3>Gulab Jamun</h3><p>A rich dairy base, shaped in small batches and soaked after frying.</p><div class="chips"><span class="chip">Amul Khoya</span><span class="chip">Paneer</span><span class="chip">Maida</span><span class="chip">Baking powder</span><span class="chip">Sugar</span><span class="chip">Water</span><span class="chip">Rose water</span><span class="chip">Oil / ghee for frying</span></div><div class="brand-list"><b>What matters to us</b><span>Fresh dairy, controlled frying and a balanced syrup rather than an overly sweet finish.</span></div></div></div>
+
+  <div class="ing-panel" id="panel-cake" role="tabpanel" aria-labelledby="tab-cake" hidden><div class="ing-media"><img src="assets/cake-ingredients-1.webp" alt="Hershey's cocoa, vanilla, Amul Mithai Mate and Amul Fresh Cream used for the cake" width="1013" height="760" loading="lazy"><img src="assets/cake-ingredients-2.webp" alt="Dark compound chocolate, Amul Fresh Cream, Amul Mithai Mate and Milky Mist butter used for the cake" width="1080" height="810" loading="lazy"></div><div class="ing-copy"><h3>Chocolate Toffee Truffle Cake</h3><p>Moist chocolate sponge with a rich truffle layer, toffee notes and a glossy ganache finish.</p><div class="chips"><span class="chip">Maida</span><span class="chip">Hershey's Cocoa</span><span class="chip">Amul Mithai Mate</span><span class="chip">Amul Fresh Cream</span><span class="chip">Dark compound chocolate</span><span class="chip">Milky Mist Butter</span><span class="chip">Vanilla flavour</span><span class="chip">Oil</span><span class="chip">Milk</span><span class="chip">Baking powder</span><span class="chip">Baking soda</span></div><div class="claim">No extra table sugar added separately.*<small>Sweetness comes from condensed milk and chocolate. This is not a sugar-free product.</small></div><div class="brand-list"><b>Brands shown are ingredients, not promotions</b><span>Khaaoyaar is not claiming sponsorship or affiliation with any brand shown.</span></div></div></div>
+
+  <p class="disclaimer">*The cake contains sugars naturally or already present in sweetened condensed milk and chocolate. Ingredient lists reflect current recipes and may be updated as recipes are refined. Please ask before ordering if you have allergies or dietary requirements.</p>
+  </div>
+</section>
+
+<section class="section" id="gallery"><div class="wrap"><div class="section-kicker">Gallery</div><h2>Real food, real batches</h2><p class="section-lead">Finished dishes, inside texture and the raw materials behind the menu.</p><div class="gallery-grid">
+  <figure><img src="assets/cake-slice.webp" alt="Chocolate Toffee Truffle Cake slice showing moist chocolate layers" width="1122" height="1402" loading="lazy"><figcaption>Chocolate Toffee Truffle Cake — inside texture</figcaption></figure>
+  <figure><img src="assets/samosa.webp" alt="Fresh Khaaoyaar samosas" width="1080" height="1440" loading="lazy"><figcaption>Samosa batch</figcaption></figure>
+  <figure><img src="assets/gulab-jamun.webp" alt="Fresh Khaaoyaar gulab jamun" width="1152" height="1536" loading="lazy"><figcaption>Gulab Jamun batch</figcaption></figure>
+  <figure><img src="assets/cake-ingredients-1.webp" alt="Cake raw materials" width="1013" height="760" loading="lazy"><figcaption>Cake raw materials</figcaption></figure>
+  <figure><img src="assets/gulab-ingredients.webp" alt="Gulab jamun raw materials" width="1400" height="1050" loading="lazy"><figcaption>Gulab Jamun raw materials</figcaption></figure>
+</div></div></section>
+
+<section class="section order" id="order"><div class="wrap order-box"><div><div class="section-kicker" style="text-align:left;color:#ffd073">Order</div><h2>Want a fresh batch?</h2><p>Message Khaaoyaar directly on WhatsApp. We will confirm the item, quantity, timing and pickup/delivery details before the order is locked.</p><a class="btn btn-wa" target="_blank" rel="noopener noreferrer" href="https://wa.me/message/UCH22PEAKQZQC1">Send Khaaoyaar a message</a><div class="allergen">Allergy note: current items may contain gluten, dairy and/or peanuts. Please ask before ordering if this matters for you.</div></div><div class="order-side"><strong>Current menu</strong><span>Samosa • Gulab Jamun • Chocolate Toffee Truffle Cake<br><br>More items will be added only after they are tested and ready to sell.</span></div></div></section>
+</main>
+
+<footer class="footer"><div class="wrap footer-inner"><div><b>Khaaoyaar — Pet Bhar Co.</b><br><small>We serve what we eat.</small></div><small>© <span id="year"></span> Khaaoyaar. Small-batch home food.</small></div></footer>
+<a class="floating-wa" href="https://wa.me/message/UCH22PEAKQZQC1" target="_blank" rel="noopener noreferrer" aria-label="Order on WhatsApp">☏</a>
+
+<script>
+  const body=document.body,drawer=document.getElementById('drawer'),openMenu=document.getElementById('openMenu'),closeMenu=document.getElementById('closeMenu'),backdrop=document.getElementById('backdrop');
+  function setMenu(open){body.classList.toggle('menu-open',open);drawer.setAttribute('aria-hidden',String(!open));openMenu.setAttribute('aria-expanded',String(open));if(open)closeMenu.focus();else openMenu.focus()}
+  openMenu.addEventListener('click',()=>setMenu(true));closeMenu.addEventListener('click',()=>setMenu(false));backdrop.addEventListener('click',()=>setMenu(false));drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&body.classList.contains('menu-open'))setMenu(false)});
+
+  const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('.dot')],heroProduct=document.getElementById('heroProduct');let current=0,timer;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function showSlide(i,auto=true){current=(i+slides.length)%slides.length;slides.forEach((s,j)=>s.classList.toggle('active',j===current));dots.forEach((d,j)=>{d.classList.toggle('active',j===current);d.setAttribute('aria-pressed',String(j===current))});heroProduct.textContent=slides[current].dataset.name;clearInterval(timer);if(!reduced&&auto)timer=setInterval(()=>showSlide(current+1),4500)}
+  dots.forEach((d,i)=>d.addEventListener('click',()=>showSlide(i)));showSlide(0);
+
+  const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.ing-panel')];
+  function activateTab(tab){tabs.forEach(x=>{const active=x===tab;x.classList.toggle('active',active);x.setAttribute('aria-selected',String(active))});panels.forEach(p=>{const active=p.id==='panel-'+tab.dataset.tab;p.classList.toggle('active',active);p.hidden=!active})}
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>activateTab(t));t.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const next=e.key==='ArrowRight'?(i+1)%tabs.length:(i-1+tabs.length)%tabs.length;tabs[next].focus();activateTab(tabs[next])})});
+
+  document.getElementById('year').textContent=new Date().getFullYear();const header=document.getElementById('siteHeader');const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>30);onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+</script>
+</body>
+</html>
